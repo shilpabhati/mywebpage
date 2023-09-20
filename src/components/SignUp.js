@@ -22,7 +22,7 @@ export const SignUp = () => {
     const handleGoogleSignIn = async (e) => {
         e.preventDefault();
         //const provider = new GoogleAuthProvider(auth);
-
+        provider.setCustomParameters({ prompt: 'select_account' });
         const result = await signInWithPopup(auth, provider)
         .then((result)=>{console.log("Signed In successfully :", result.user)})
         .catch((error) => console.log("Error signing in with Google :", error))
